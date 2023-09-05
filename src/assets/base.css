@@ -5,10 +5,16 @@
 
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --clr-darkgrey: rgb(32, 32, 32);
+  --clr-black: rgb(0, 0, 0);
+  --clr-darkgrey: rgb(31, 31, 34);
+  --clr-lightgrey: rgb(172, 172, 172);
+  --clr-middlegrey: rgb(116, 115, 115);
   --clr-darkergrey: rgb(19, 19, 19);
+  --clr-darkcyan: rgb(5, 33, 34);
   --clr-offwhite: rgb(238, 238, 238);
   --clr-red: rgb(148, 1, 1);
+  --clr-darkred: rgb(100, 2, 2);
+  --clr-green: rgb(1, 148, 33);
   /* --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
@@ -41,7 +47,6 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
-  --color-aurebesh: var(--clr-red);
 
   --section-gap: 160px;
 }
@@ -53,14 +58,18 @@
   :root {
     --color-background: var(--clr-darkgrey);
     --color-background-card: var(--clr-darkergrey);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
+    --color-background-header: var(--clr-darkcyan);
+    --color-aurebesh: var(--clr-red);
+    --color-button-border: var(--clr-darkred);
     --color-border: var(--vt-c-divider-dark-2);
     --color-border-hover: var(--vt-c-divider-dark-1);
-
+    --color-button-background: var(--clr-lightgrey);
+    --color-button-background-hover: var(--clr-middlegrey);
+    --color-button-text: var(--clr-black);
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--clr-offwhite);
+    --color-input-active: var(--clr-green);
+    --color-input-background: var(--clr-black);
   }
 }
 
@@ -97,4 +106,53 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---styling for card render sites */
+
+.component__container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.search-results__container {
+  padding-top: 2rem;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.result__card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--color-background-card);
+  padding: 2rem;
+  padding-left: 4rem;
+  flex-grow: 1;
+  min-width: 25rem;
+  max-width: 40rem;
+  border-radius: var(--border-radius-cards);
+}
+.ship-data__wrapper {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  line-height: 1.5rem;
+  text-indent: -2rem;
+}
+
+.result-name__headline {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  font-variant-caps: small-caps;
+}
+.aurebesh__wrapper {
+  color: var(--color-aurebesh);
+  writing-mode: vertical-lr;
+  font-family: aurebesh;
 }

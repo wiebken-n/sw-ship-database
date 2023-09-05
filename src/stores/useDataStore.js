@@ -2,9 +2,9 @@ import { defineStore } from 'pinia'
 
 export const useDataStore = defineStore('state', {
   state: () => ({
-    currentShip: 'someShip',
-    aShip: 'a wonderful ship',
-    searchResults: {}
+    searchResults: {},
+    savedShips: [],
+    selectedSite: ''
   }),
 
   actions: {
@@ -25,6 +25,10 @@ export const useDataStore = defineStore('state', {
           console.log(data)
           console.log(this.searchResults)
         })
+    },
+    saveShip(ship) {
+      this.savedShips.push(ship)
+      console.log(this.savedShips)
     }
   }
 })
