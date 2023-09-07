@@ -31,7 +31,7 @@
 
 <script setup>
 import { useDataStore } from '@/stores/useDataStore.js'
-import DeleteIconVue from './icons/deleteicon.vue'
+import DeleteIconVue from './icons/DeleteIcon.vue'
 
 const dataStore = useDataStore()
 </script>

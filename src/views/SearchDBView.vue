@@ -1,9 +1,9 @@
 <template>
   <SiteHeaderVue></SiteHeaderVue>
-  <DBresultsVue></DBresultsVue>
+  <DBResultsVue></DBResultsVue>
 </template>
 
 <script setup>
-import DBresultsVue from '@/components/DBresults.vue'
+import DBResultsVue from '@/components/DBResults.vue'
 import SiteHeaderVue from '@/components/SiteHeader.vue'
 </script>

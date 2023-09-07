@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import SearchDBView from '@/views/SearchDBView.vue'
 import SavedShipsView from '@/views/SavedShipsView.vue'
 import CompareShipsView from '@/views/CompareShipsView.vue'
-// import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
