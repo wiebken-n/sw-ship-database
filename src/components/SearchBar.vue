@@ -5,6 +5,7 @@
       type="text"
       v-model.trim="userInput"
       @keyup.enter="dataStore.searchSwapi(userInput)"
+      @keypress.enter="this.$router.push('/')"
     />
     <RouterLink to="/"
       ><button class="btn-search" for="search-input" @click="dataStore.searchSwapi(userInput)">
@@ -49,18 +50,20 @@ const userInput = ref('')
 }
 
 button {
+  font-family: changa;
   font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-button-text);
+  font-weight: 400;
+  color: var(--color-text);
   border: none;
   border-radius: 5px;
-  border: 1px solid var(--color-button-background-hover);
-  box-shadow: 0 0 4px 1px var(--color-aurebesh);
+  border: 1px solid var(--color-button-border);
+  box-shadow: 0 0 4px 0px var(--color-button-border);
   background-color: var(--color-button-background);
   width: 10rem;
   height: 2.5rem;
 }
 button:hover {
+  background-color: var(--color-button-background-hover);
   box-shadow: 0 0 15px 4px var(--color-input-active);
 }
 </style>

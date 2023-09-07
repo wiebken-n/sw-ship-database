@@ -3,6 +3,15 @@
   src: url('@/assets/AurebeshAF-Canon.otf');
 }
 
+@font-face {
+  font-family: 'comfortaa';
+  src: url('@/assets/Comfortaa-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'changa';
+  src: url('@/assets/Changa-VariableFont_wght.ttf');
+}
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --clr-black: rgb(0, 0, 0);
@@ -10,12 +19,14 @@
   --clr-middledarkgrey: rgb(39, 39, 41);
   --clr-lightgrey: rgb(172, 172, 172);
   --clr-middlegrey: rgb(116, 115, 115);
+  --clr-darkishgrey: rgb(26, 26, 26);
   --clr-darkergrey: rgb(19, 19, 19);
   --clr-darkergrey-dark: rgb(17, 17, 17);
   --clr-darkcyan: rgb(5, 33, 34);
   --clr-offwhite: rgb(238, 238, 238);
   --clr-red: rgb(148, 1, 1);
   --clr-darkred: rgb(100, 2, 2);
+  --clr-darkerred: rgb(39, 18, 18);
   --clr-green: rgb(1, 148, 33);
 }
 
@@ -30,16 +41,15 @@
   --color-background-card-hover: var(--clr-darkergrey-dark);
   --color-background-header: var(--clr-middledarkgrey);
   --color-aurebesh: var(--clr-red);
-  --color-button-border: var(--clr-darkred);
-  --color-border: var(--vt-c-divider-dark-2);
-  --color-border-hover: var(--vt-c-divider-dark-1);
-  --color-button-background: var(--clr-lightgrey);
-  --color-button-background-hover: var(--clr-middlegrey);
+  --color-button-border: var(--clr-lightgrey);
+  --color-button-background: var(--clr-darkishgrey);
+  --color-button-background-hover: var(--clr-black);
   --color-button-text: var(--clr-black);
-  --color-heading: var(--vt-c-text-dark-1);
   --color-text: var(--clr-offwhite);
   --color-input-active: var(--clr-green);
   --color-input-background: var(--clr-black);
+  --color-icon-background: var(--clr-lightgrey);
+  --color-header-divider: var(--clr-darkerred);
 }
 :root {
   font-size: 15px;
@@ -56,9 +66,6 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
   line-height: 1.6;
   font-family:
     Inter,
@@ -73,7 +80,8 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-
+  font-family: changa;
+  font-weight: 500;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -104,8 +112,8 @@ body {
   padding: 2rem;
   padding-left: 4rem;
   flex-grow: 1;
-  min-width: 25rem;
   max-width: 35rem;
+  min-width: 20rem;
   border-radius: var(--border-radius-cards);
   transition: background-color 200ms ease;
 }
@@ -138,7 +146,7 @@ body {
 .bi {
   width: 2rem;
   height: 2rem;
-  color: var(--color-button-background);
+  color: var(--color-icon-background);
 }
 .bi:hover {
   color: var(--color-text);
@@ -162,4 +170,17 @@ body {
   :root {
     font-size: 11px;
   }
+}
+
+.shiplist_dropdown-row:hover {
+  border: 2px solid var(--color-input-active);
+}
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 200ms ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }

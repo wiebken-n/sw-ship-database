@@ -1,49 +1,71 @@
 <template>
   <div class="nav__container">
-    <RouterLink class="navlink" to="/"> Search </RouterLink>
-    <RouterLink class="navlink" to="/ships"> Saved Ships </RouterLink>
-    <RouterLink class="navlink" to="/compare-ships"> Compare Ships </RouterLink>
+    <RouterLink
+      :class="{
+        active: dataStore.currentSite === 'search'
+      }"
+      class="navlink"
+      to="/"
+      @click="dataStore.setCurrent('search')"
+    >
+      Search
+    </RouterLink>
+    <RouterLink
+      :class="{
+        active: dataStore.currentSite === 'saved'
+      }"
+      class="navlink"
+      to="/ships"
+      @click="dataStore.setCurrent('saved')"
+    >
+      Saved Ships
+    </RouterLink>
+    <RouterLink
+      :class="{
+        active: dataStore.currentSite === 'compare'
+      }"
+      class="navlink"
+      to="/compare-ships"
+      @click="dataStore.setCurrent('compare')"
+    >
+      Compare Ships
+    </RouterLink>
   </div>
 </template>
 
 <script setup>
-// import { useDataStore } from '@/stores/useDataStore.js'
+import { useDataStore } from '@/stores/useDataStore.js'
 import { RouterLink } from 'vue-router'
 
-// const dataStore = useDataStore()
-// const router = useRouter()
-
-// function goToSearch() {
-//   console.log(dataStore)
-//   //   dataStore.selectedSite = 'search'
-//   router.push({ path: '/' })
-// }
-
-// function goToShow() {
-//   //   dataStore.selectedSite = 'ships'
-//   router.push({ path: '/ships' })
-// }
+const dataStore = useDataStore()
 </script>
+
 <style scoped>
 .nav__container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding-block: 1rem;
 }
 
 .navlink {
+  font-family: comfortaa;
   color: var(--color-text);
   font-size: 1.2rem;
-  text-decoration: overline 0 black;
-  text-decoration: underline 1px var(--color-button-background-hover);
-  text-underline-offset: 8px;
+  border-radius: 2px;
+  border: 2px solid transparent;
+  border-bottom: 2px solid var(--color-text);
+  text-decoration: none;
   transition: all 200ms ease;
 }
 .navlink:hover {
-  text-decoration: underline overline 2px var(--color-input-active);
+  border-block: 2px solid var(--color-input-active);
 }
 
+.active {
+  border-block: 2px solid var(--color-aurebesh);
+}
 .navlink:active {
-  text-decoration: underline overline 1px var(--color-aurebesh);
+  border-block: 2px solid var(--color-aurebesh);
 }
 </style>
