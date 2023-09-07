@@ -17,10 +17,13 @@
           <p>Crew: {{ result.crew }}</p>
           <p>Passengers: {{ result.passengers }}</p>
           <p>Cargo capacity: {{ result.cargo_capacity }}kg</p>
-          <button @click="dataStore.saveShip(result)">save</button>
         </div>
         <div class="aurebesh__wrapper">
           <p>Name: {{ result.name }}</p>
+          <AddIconVue
+            v-bind:class="{ shipSaved: checkIfShipSaved(result.name) }"
+            @click.once="dataStore.saveShip(result)"
+          ></AddIconVue>
         </div>
       </div>
     </div>
@@ -29,6 +32,15 @@
 
 <script setup>
 import { useDataStore } from '@/stores/useDataStore.js'
-
+import AddIconVue from './icons/AddIcon.vue'
+function checkIfShipSaved(shipname) {
+  for (let ship of dataStore.savedShips) {
+    if (ship.name === shipname) {
+      console.log('true')
+      return true
+    }
+  }
+  return false
+}
 const dataStore = useDataStore()
 </script>

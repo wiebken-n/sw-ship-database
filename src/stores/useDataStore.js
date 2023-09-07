@@ -4,6 +4,8 @@ export const useDataStore = defineStore('state', {
   state: () => ({
     searchResults: {},
     savedShips: [],
+    shipOne: [],
+    shipTow: [],
     selectedSite: ''
   }),
 
@@ -29,6 +31,14 @@ export const useDataStore = defineStore('state', {
     saveShip(ship) {
       this.savedShips.push(ship)
       console.log(this.savedShips)
+    },
+    checkIfHighest(ship, shipArray) {
+      for (let entry of shipArray) {
+        if (entry.length > ship.length) {
+          return true
+        }
+      }
+      return false
     }
   }
 })

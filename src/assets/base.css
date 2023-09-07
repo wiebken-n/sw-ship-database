@@ -7,72 +7,43 @@
 :root {
   --clr-black: rgb(0, 0, 0);
   --clr-darkgrey: rgb(31, 31, 34);
+  --clr-middledarkgrey: rgb(39, 39, 41);
   --clr-lightgrey: rgb(172, 172, 172);
   --clr-middlegrey: rgb(116, 115, 115);
   --clr-darkergrey: rgb(19, 19, 19);
+  --clr-darkergrey-dark: rgb(17, 17, 17);
   --clr-darkcyan: rgb(5, 33, 34);
   --clr-offwhite: rgb(238, 238, 238);
   --clr-red: rgb(148, 1, 1);
   --clr-darkred: rgb(100, 2, 2);
   --clr-green: rgb(1, 148, 33);
-  /* --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
-
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
-
-  --vt-c-indigo: #2c3e50;
-
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
-
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64); */
 }
 
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
-}
 /* additional variables */
 :root {
   --border-radius-cards: 8px;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--clr-darkgrey);
-    --color-background-card: var(--clr-darkergrey);
-    --color-background-header: var(--clr-darkcyan);
-    --color-aurebesh: var(--clr-red);
-    --color-button-border: var(--clr-darkred);
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-    --color-button-background: var(--clr-lightgrey);
-    --color-button-background-hover: var(--clr-middlegrey);
-    --color-button-text: var(--clr-black);
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--clr-offwhite);
-    --color-input-active: var(--clr-green);
-    --color-input-background: var(--clr-black);
-  }
-}
 
+:root {
+  --color-background: var(--clr-darkgrey);
+  --color-background-card: var(--clr-darkergrey);
+  --color-background-card-hover: var(--clr-darkergrey-dark);
+  --color-background-header: var(--clr-middledarkgrey);
+  --color-aurebesh: var(--clr-red);
+  --color-button-border: var(--clr-darkred);
+  --color-border: var(--vt-c-divider-dark-2);
+  --color-border-hover: var(--vt-c-divider-dark-1);
+  --color-button-background: var(--clr-lightgrey);
+  --color-button-background-hover: var(--clr-middlegrey);
+  --color-button-text: var(--clr-black);
+  --color-heading: var(--vt-c-text-dark-1);
+  --color-text: var(--clr-offwhite);
+  --color-input-active: var(--clr-green);
+  --color-input-background: var(--clr-black);
+}
+:root {
+  font-size: 15px;
+}
 *,
 *::before,
 *::after {
@@ -102,7 +73,7 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-  font-size: 15px;
+
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -134,8 +105,12 @@ body {
   padding-left: 4rem;
   flex-grow: 1;
   min-width: 25rem;
-  max-width: 40rem;
+  max-width: 35rem;
   border-radius: var(--border-radius-cards);
+  transition: background-color 200ms ease;
+}
+.result__card:hover {
+  background-color: var(--color-background-card-hover);
 }
 .ship-data__wrapper {
   font-size: 1rem;
@@ -152,7 +127,39 @@ body {
   font-variant-caps: small-caps;
 }
 .aurebesh__wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
   color: var(--color-aurebesh);
   writing-mode: vertical-lr;
   font-family: aurebesh;
+}
+
+.bi {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-button-background);
+}
+.bi:hover {
+  color: var(--color-text);
+  box-shadow: 0 0 20px 1px var(--color-input-active);
+  background-color: var(--color-background);
+}
+
+.bi:active {
+  box-shadow: 0 0 20px 5px var(--color-input-active);
+}
+
+.shipSaved,
+.shipSaved:hover,
+.shipSaved:active {
+  background-color: transparent;
+  color: var(--color-background);
+  box-shadow: none;
+}
+
+@media (max-width: 500px) {
+  :root {
+    font-size: 11px;
+  }
 }

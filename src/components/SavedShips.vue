@@ -13,10 +13,10 @@
           <p>Crew: {{ result.crew }}</p>
           <p>Passengers: {{ result.passengers }}</p>
           <p>Cargo capacity: {{ result.cargo_capacity }}kg</p>
-          <button @click="dataStore.savedShips.splice(index, 1)">delete</button>
         </div>
         <div class="aurebesh__wrapper">
           <p>Name: {{ result.name }}</p>
+          <DeleteIconVue @click="dataStore.savedShips.splice(index, 1)"></DeleteIconVue>
         </div>
       </div>
     </div>
@@ -25,6 +25,7 @@
 
 <script setup>
 import { useDataStore } from '@/stores/useDataStore.js'
+import DeleteIconVue from './icons/DeleteIcon.vue'
 
 const dataStore = useDataStore()
 </script>

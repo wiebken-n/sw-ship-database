@@ -6,13 +6,16 @@
       v-model.trim="userInput"
       @keyup.enter="dataStore.searchSwapi(userInput)"
     />
-    <button class="btn-search" for="search-input" @click="dataStore.searchSwapi(userInput)">
-      Search Database
-    </button>
+    <RouterLink to="/"
+      ><button class="btn-search" for="search-input" @click="dataStore.searchSwapi(userInput)">
+        Search Database
+      </button></RouterLink
+    >
   </div>
 </template>
 
 <script setup>
+import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
 import { useDataStore } from '@/stores/useDataStore.js'
 
@@ -51,13 +54,13 @@ button {
   color: var(--color-button-text);
   border: none;
   border-radius: 5px;
-  border: 1px solid var(--color-input-background);
+  border: 1px solid var(--color-button-background-hover);
   box-shadow: 0 0 4px 1px var(--color-aurebesh);
   background-color: var(--color-button-background);
   width: 10rem;
+  height: 2.5rem;
 }
 button:hover {
-  /* background-color: var(--color-button-background-hover); */
   box-shadow: 0 0 15px 4px var(--color-input-active);
 }
 </style>
