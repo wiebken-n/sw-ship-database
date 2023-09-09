@@ -55,6 +55,7 @@ const dataStore = useDataStore()
   align-items: center;
   height: 100%;
   flex-grow: 1;
+  font-family: changa;
 }
 
 .icon-chevron {
@@ -70,6 +71,7 @@ const dataStore = useDataStore()
   gap: 3px;
 }
 .shiplist_dropdown-row {
+  font-family: changa;
   border-radius: 5px;
   padding: 0.1rem 1rem;
   display: flex;

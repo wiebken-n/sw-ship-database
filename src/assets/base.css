@@ -12,7 +12,7 @@
   font-family: 'changa';
   src: url('@/assets/Changa-VariableFont_wght.ttf');
 }
-/* color palette from <https://github.com/vuejs/theme> */
+/* colors */
 :root {
   --clr-black: rgb(0, 0, 0);
   --clr-darkgrey: rgb(31, 31, 34);
@@ -28,11 +28,6 @@
   --clr-darkred: rgb(100, 2, 2);
   --clr-darkerred: rgb(39, 18, 18);
   --clr-green: rgb(1, 148, 33);
-}
-
-/* additional variables */
-:root {
-  --border-radius-cards: 8px;
 }
 
 :root {
@@ -51,6 +46,13 @@
   --color-icon-background: var(--clr-lightgrey);
   --color-header-divider: var(--clr-darkerred);
 }
+/* additional variables */
+:root {
+  --border-radius-cards: 8px;
+}
+
+/* general styling */
+
 :root {
   font-size: 15px;
 }
@@ -80,7 +82,6 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-  font-family: changa;
   font-weight: 500;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -130,9 +131,10 @@ body {
 }
 
 .result-name__headline {
-  font-size: 1.6rem;
+  font-size: 2rem;
   margin-bottom: 1.2rem;
   font-variant-caps: small-caps;
+  font-family: changa;
 }
 .aurebesh__wrapper {
   display: flex;
@@ -166,9 +168,15 @@ body {
   box-shadow: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   :root {
     font-size: 11px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1rem;
   }
 }
 

@@ -45,7 +45,7 @@ const dataStore = useDataStore()
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  padding-block: 1rem;
+  padding-bottom: 1rem;
 }
 
 .navlink {
@@ -53,19 +53,19 @@ const dataStore = useDataStore()
   color: var(--color-text);
   font-size: 1.2rem;
   border-radius: 2px;
-  border: 2px solid transparent;
-  border-bottom: 2px solid var(--color-text);
+  border: 1.5px solid transparent;
+  border-bottom: 1.5px solid var(--color-text);
   text-decoration: none;
   transition: all 200ms ease;
 }
 .navlink:hover {
-  border-block: 2px solid var(--color-input-active);
+  border-block: 1.5px solid var(--color-input-active);
 }
 
 .active {
-  border-block: 2px solid var(--color-aurebesh);
+  border-block: 1.5px solid var(--color-aurebesh);
 }
 .navlink:active {
-  border-block: 2px solid var(--color-aurebesh);
+  border-block: 1.5px solid var(--color-aurebesh);
 }
 </style>

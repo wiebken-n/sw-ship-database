@@ -15,33 +15,31 @@ export const useDataStore = defineStore('state', {
   }),
 
   actions: {
-    fetchShipData() {
-      console.log(this.currentShip)
-      this.currentShip = 'a new ship has arrived'
-      console.log(this.currentShip)
-      console.log('fetch!')
-    },
     searchSwapi(userinput) {
-      return fetch(`https://swapi.dev/api/starships/?search=${userinput}`, {
-        method: 'GET',
-        contentType: 'application/json'
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          this.searchResults = data
-          console.log(data)
-          console.log(this.searchResults)
+      if (userinput !== '') {
+        return fetch(`https://swapi.dev/api/starships/?search=${userinput}`, {
+          method: 'GET',
+          contentType: 'application/json'
         })
+          .then((response) => response.json())
+          .then((data) => {
+            this.searchResults = data
+          })
+      }
+    },
+    searchAction(userinput) {
+      this.searchSwapi(userinput)
+      this.setCurrent('search')
     },
     saveShip(ship) {
       this.savedShips.push(ship)
-      console.log(this.savedShips)
+      localStorage.setItem('savedShips', JSON.stringify(this.savedShips))
     },
     setCurrent(current) {
       this.currentSite = current
+      this.searchResults = {}
     },
     toggleShipOneSelection() {
-      console.log(this.shipOneSelectionOn)
       if (this.shipOneSelectionOn) {
         this.shipOneSelectionOn = false
       } else if (!this.shipOneSelectionOn) {
@@ -49,7 +47,6 @@ export const useDataStore = defineStore('state', {
       }
     },
     toggleShipTwoSelection() {
-      console.log(this.shipTwoSelectionOn)
       if (this.shipTwoSelectionOn) {
         this.shipTwoSelectionOn = false
       } else if (!this.shipTwoSelectionOn) {
@@ -61,28 +58,20 @@ export const useDataStore = defineStore('state', {
       this.shipTwoSelectionOn = false
     },
     selectShipOne(ship) {
-      console.log(ship)
       this.shipOne[0] = ship
       this.shipOneName = ship.name
       this.shipOneSelectionOn = false
     },
     selectShipTwo(ship) {
-      console.log(ship)
       this.shipTwo[0] = ship
       this.shipTwoName = ship.name
       this.shipTwoSelectionOn = false
     },
     checkWhichIsHigher(thisShip, otherShip, shipAttribute) {
-      return thisShip[shipAttribute] * 1 > otherShip[shipAttribute] * 1
-    },
-
-    checkIfHighest(ship, shipArray) {
-      for (let entry of shipArray) {
-        if (entry.length > ship.length) {
-          return true
-        }
-      }
-      return false
+      return (
+        thisShip[shipAttribute].replace(/\D/g, '') * 1 >
+        otherShip[shipAttribute].replace(/\D/g, '') * 1
+      )
     }
   }
 })

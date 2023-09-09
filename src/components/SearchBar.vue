@@ -3,9 +3,10 @@
     <input
       id="search-input"
       type="text"
+      placeholder="Input name or model of a spaceship"
       v-model.trim="userInput"
-      @keyup.enter="dataStore.searchSwapi(userInput)"
-      @keypress.enter="this.$router.push('/')"
+      @keyup="this.$router.push('/')"
+      @keypress.enter="searchAction(userInput)"
     />
     <RouterLink to="/"
       ><button class="btn-search" for="search-input" @click="dataStore.searchSwapi(userInput)">
@@ -22,6 +23,11 @@ import { useDataStore } from '@/stores/useDataStore.js'
 
 const dataStore = useDataStore()
 const userInput = ref('')
+
+function searchAction(userInput) {
+  dataStore.searchSwapi(userInput)
+  dataStore.setCurrent('search')
+}
 </script>
 
 <style scoped>
@@ -30,6 +36,7 @@ const userInput = ref('')
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  padding-bottom: 1.25rem;
 }
 #search-input {
   width: 15rem;
@@ -59,7 +66,7 @@ button {
   border: 1px solid var(--color-button-border);
   box-shadow: 0 0 4px 0px var(--color-button-border);
   background-color: var(--color-button-background);
-  width: 10rem;
+  width: 9rem;
   height: 2.5rem;
 }
 button:hover {
