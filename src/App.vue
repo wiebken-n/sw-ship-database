@@ -1,13 +1,14 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import { useDataStore } from '@/stores/useDataStore'
-import { onMounted } from 'vue'
+import { onBeforeMount } from 'vue'
 const dataStore = useDataStore()
 
-onMounted(() => {
-  if (localStorage.getItem('savedShips') !== 'null') {
+onBeforeMount(() => {
+  if (localStorage.getItem('savedShips') !== null) {
     dataStore.savedShips = JSON.parse(localStorage.getItem('savedShips'))
   }
+  return
 })
 </script>
 
