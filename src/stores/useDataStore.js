@@ -69,8 +69,8 @@ export const useDataStore = defineStore('state', {
     },
     checkWhichIsHigher(thisShip, otherShip, shipAttribute) {
       return (
-        thisShip[shipAttribute].replace(/\D/g, '') * 1 >
-        otherShip[shipAttribute].replace(/\D/g, '') * 1
+        thisShip[shipAttribute].replace(/[^0-9.]/g, '') * 1 >
+        otherShip[shipAttribute].replace(/[^0-9.]/g, '') * 1
       )
     }
   }
