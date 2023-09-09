@@ -5,11 +5,10 @@
       type="text"
       placeholder="Input name or model of a spaceship"
       v-model.trim="userInput"
-      @keyup="this.$router.push('/')"
-      @keypress.enter="searchAction(userInput)"
+      @keypress.enter="searchAction(userInput), this.$router.push('/')"
     />
     <RouterLink to="/"
-      ><button class="btn-search" for="search-input" @click="dataStore.searchSwapi(userInput)">
+      ><button class="btn-search" for="search-input" @click="dataStore.searchAction(userInput)">
         Search Database
       </button></RouterLink
     >
