@@ -17,7 +17,7 @@
             <p>Hyperdrive class: {{ result.hyperdrive_rating }}</p>
             <p>Crew: {{ result.crew }}</p>
             <p>Passengers: {{ result.passengers }}</p>
-            <p>Cargo capacity: {{ result.cargo_capacity }}kg</p>
+            <p>Cargo capacity: {{ result.cargo_capacity }} kg</p>
           </div>
           <div class="aurebesh__wrapper">
             <p>Name: {{ result.name }}</p>

@@ -2,8 +2,8 @@
   <div class="header__container" @click="dataStore.closeShipSelectionDropDowns()">
     <div class="header-content__wrapper">
       <div class="headline__wrapper">
-        <h1>Star Wars Ship DB</h1>
-        <h2>Star Wars Ship DB</h2>
+        <h1>SW Ship DB</h1>
+        <h2>SW Ship DB</h2>
       </div>
       <SearchBar></SearchBar>
       <NavBarVue></NavBarVue>
