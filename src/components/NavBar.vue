@@ -44,10 +44,15 @@ const dataStore = useDataStore()
 .nav__container {
   display: flex;
   flex-direction: row;
+  gap: 0.5rem;
   justify-content: space-evenly;
   padding-bottom: 1rem;
 }
-
+@media (max-width: 600px) {
+  .nav__container {
+    justify-content: space-between;
+  }
+}
 .navlink {
   font-family: comfortaa;
   color: var(--color-text);
