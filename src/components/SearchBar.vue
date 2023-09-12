@@ -3,7 +3,7 @@
     <input
       id="search-input"
       type="text"
-      placeholder="Input name or model of a spaceship"
+      placeholder="Enter a spaceship name"
       v-model.trim="userInput"
       @keypress.enter="searchAction(userInput), this.$router.push('/')"
     />
@@ -40,7 +40,7 @@ function searchAction(userInput) {
 #search-input {
   width: 15rem;
   height: 2.5rem;
-  padding: 0.3rem 0.5rem;
+  padding: 0.3rem 0.6rem;
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 2px 1px var(--color-aurebesh);
